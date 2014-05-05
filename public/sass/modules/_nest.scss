@@ -1,9 +1,9 @@
 .widget--nest
 {
     width: 100%;
-    min-height: 140px;
+    min-height: 135px;
     color: $color-font;
-    background: lighten($color-two, 10);
+    background: #E6EDF2;
 
     .widget--front
     {
@@ -26,7 +26,6 @@
 
     .nest--temp-type
     {
-        color: $color-font-light;
         font-weight: 300;
         text-transform: uppercase;
     }

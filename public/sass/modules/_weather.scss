@@ -2,7 +2,7 @@ $tile-height: 220px;
 
 .widget--weather
 {
-    background: lighten($color-two, 15);
+    background: #C1D1DB;
     min-height: $tile-height;
     color: $color-font;
 
@@ -24,7 +24,6 @@ $tile-height: 220px;
         top: $tile-height;
         opacity: 1;
         visibility: visible;
-        background: $color-four;
     }
 
     .widget--swap
