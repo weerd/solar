@@ -1,0 +1,17 @@
+*, *:before, *:after 
+{
+    -moz-box-sizing: border-box; 
+    -webkit-box-sizing: border-box; 
+    box-sizing: border-box;
+ }
+
+ @import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300,700);
+
+body
+{
+    background: $color-background-dark;
+    color: #f6f6f6;
+    font-family: "Open Sans", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    line-height: 22px;
+}

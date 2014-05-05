@@ -1,0 +1,40 @@
+.widget--nest
+{
+    width: 100%;
+    min-height: 140px;
+    color: $color-font;
+    background: lighten($color-two, 10);
+
+    .widget--front
+    {
+        padding: 0;
+    }
+}
+
+.widget--nest .nest
+{
+    width: 50%;
+    float: left;
+    text-align: center;
+    padding: $padding-default; 
+
+    .nest--location
+    {
+        font-weight: 700;
+        color: $color-font;
+    }
+
+    .nest--temp-type
+    {
+        color: $color-font-light;
+        font-weight: 300;
+        text-transform: uppercase;
+    }
+
+    .nest--temp-target
+    {
+        font-size: 24px;
+        margin: 10px 0 10px 0;
+    }
+}
+

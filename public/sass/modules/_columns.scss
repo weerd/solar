@@ -1,0 +1,21 @@
+.column--one
+{
+    width: 100%;
+}
+
+@media (min-width: $screen-md-width)
+{
+    .column--one
+    {
+        width: 50%;
+    }
+}
+
+
+@media (min-width: $screen-lg-width)
+{
+    .column--one
+    {   
+        width: 33.33%;
+    }
+}

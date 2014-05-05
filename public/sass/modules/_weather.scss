@@ -1,0 +1,61 @@
+$tile-height: 220px;
+
+.widget--weather
+{
+    background: lighten($color-two, 15);
+    min-height: $tile-height;
+    color: $color-font;
+
+    .widget--front,
+    .widget--back
+    {
+        height: $tile-height;
+        @include transition(transform 600ms cubic-bezier(1, 0, 0, 1));
+    }
+
+    .widget--back
+    {
+        font-size: 13px;
+    }
+
+    .widget--back
+    {
+        color: $color-font;
+        top: $tile-height;
+        opacity: 1;
+        visibility: visible;
+        background: $color-four;
+    }
+
+    .widget--swap
+    {
+        -webkit-transform: translate(0, -$tile-height);
+    }
+
+    .temperature
+    {
+        position: absolute;
+        top: $padding-default;
+        left: $padding-default;
+        font-weight: 100;
+        font-size: 72px;
+        line-height: 52px;
+    }
+
+    .conditions
+    {
+        position: absolute;
+        bottom: $padding-default;
+        right: $padding-default;
+    }
+
+    .hourly
+    {
+        margin-bottom: 15px;
+    }
+}
+
+@media (min-width: $screen-sm-width)
+{
+
+}
