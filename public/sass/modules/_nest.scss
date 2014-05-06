@@ -3,7 +3,7 @@
     width: 100%;
     min-height: 135px;
     color: $color-font;
-    background: #E6EDF2;
+    background: $color-grad-two;
 
     .widget--front
     {
@@ -17,6 +17,11 @@
     float: left;
     text-align: center;
     padding: $padding-default; 
+
+    &.nest--target-cool .nest--temp-type
+    {
+        color: #0850E6;
+    }
 
     .nest--location
     {

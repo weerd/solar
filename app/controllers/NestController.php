@@ -7,9 +7,25 @@ class NestController extends BaseController
 {
     public static function connect()
     {
-        $nest = new Nest();
 
-        return $nest;
+        $cache = 'nest__status';
+
+        if (Cache::has($cache)):
+
+            $nestStatus = Cache::get($cache);
+
+        else:
+
+            $nest = new Nest();
+            $nestStatus = $nest->getStatus();
+
+            $expires = Carbon::now()->addMinutes(2);
+
+            Cache::put($cache, $nestStatus, $expires);
+
+        endif;
+
+        return $nestStatus;
     }
 
     /*
@@ -40,22 +56,7 @@ class NestController extends BaseController
 
     public static function getStatus()
     {
-        $cache = 'nest__status';
-
-        if (Cache::has($cache)):
-
-            $nestStatus = Cache::get($cache);
-
-        else:
-
-            $nest = self::connect();
-            $nestStatus = $nest->getStatus();
-
-            $expires = Carbon::now()->addMinutes(5);
-
-            Cache::put($cache, $nestStatus, $expires);
-
-        endif;
+        $nestStatus = self::connect();
 
         $nestData = array();
         $nestLocations = array();

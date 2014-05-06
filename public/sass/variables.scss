@@ -17,3 +17,8 @@ $color-one: #5D84C1;
 $color-two: #7DA6DB;
 $color-three: #DDE1EE;
 $color-four: #EEEEFF;
+
+
+$color-grad-one: darken(#C1D1DB, 10);
+$color-grad-two: lighten($color-grad-one, 5);
+$color-grad-three: lighten($color-grad-one, 10);

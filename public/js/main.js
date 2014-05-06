@@ -1,5 +1,9 @@
 require.config({
-
+    shim: {
+        'skycons': {
+            exports: 'Skycons'
+        },
+    }
 });
 
 require([

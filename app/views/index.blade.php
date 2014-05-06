@@ -8,10 +8,11 @@
 </head>
 <body>
 
-    <div id="solar--wrapper" class="wrapper">
+    <div id="solar--wrapper" class="wrapper">   
         <div class="column column--one">
             <div id="widget__weather" class="widget widget--weather"></div>
             <div id="widget__nest" class="widget widget--nest"></div>
+            <div id="widget__transit" class="widget widget--transit"></div>
         </div>
     </div>
 </body>

@@ -1,0 +1,77 @@
+.widget--transit
+{
+    background: $color-grad-three;
+    height: 125px;
+    color: $color-font;
+    padding: $padding-default;
+
+    .transit--summary
+    {
+        margin: 0 auto;
+    }
+
+    .transit--line
+    {            
+        float: left;
+        width: 33%;
+        text-align: center;
+
+        // &:nth-child(2)
+        // {
+        //     margin: 0 25px 0 25px;
+        // }
+
+        .name
+        {
+            font-weight: 100;
+            font-size: 24px;
+            line-height: 41px;
+            width: 45px;
+            height: 45px;
+            margin: 0 auto;
+            border: 1px solid $color-font;
+            border-radius: 100%;
+            text-align: center;
+        }     
+
+        .status
+        {
+            font-size: 13px;
+            font-weight: 100;
+            display: inline-block;
+            padding-top: 10px;
+        }
+
+        &.transit--status-green
+        { 
+            .status,
+            .name
+            {
+                color: lighten(green, 10);
+                border-color: lighten(green, 10);
+            }
+        }
+
+        &.transit--status-yellow
+        { 
+            .status,
+            .name
+            {
+                color: lighten(yellow, 15);
+                border-color: lighten(yellow, 15);
+            }
+        }
+
+        &.transit--status-red
+        { 
+            .status,
+            .name
+            {
+                color: lighten(red, 10);
+                border-color: lighten(red, 10);
+            }
+        }
+
+
+    }
+}

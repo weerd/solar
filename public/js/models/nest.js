@@ -4,9 +4,9 @@ define([
     'backbone'
 ], function ($, _, Backbone) 
 {
-    Weather = Backbone.Model.extend(
+    Nest = Backbone.Model.extend(
     {
-        url: '/api/v1/weather',
+        url: '/api/v1/nest',
 
         initialize: function()
         {
@@ -23,9 +23,9 @@ define([
 
         fetchError: function (model, response) 
         {
-            throw new Error("ERROR: Weather information could not be fetched.");
+            throw new Error("ERROR: NEST information could not be fetched.");
         }
     });
 
-    return Weather;
+    return Nest;
 });

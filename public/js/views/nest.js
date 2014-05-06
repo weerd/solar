@@ -2,38 +2,14 @@ define([
     'jquery',
     'underscore',
     'backbone',
+    'models/nest',
     'text!templates/nest.html'
 
-], function ($, _, Backbone, nestTemplate) 
+], function ($, _, Backbone, Nest, nestTemplate) 
 {
 
-    Nest = Backbone.Model.extend({
-        url: '/api/v1/nest',
-
-        initialize: function(){
-            this.fetch({
-                success: this.fetchSuccess,
-                error: this.fetchError
-            });
-        },
-
-        parse: function(response) 
-        {
-            return response;
-        },
-
-        fetchSuccess: function (model, response) {
-            console.log('FETCH SUCCESS: ', response);
-            console.log('FETCH MODEL: ', model);
-        },
-
-        fetchError: function (model, response) {
-            throw new Error("Books fetch error");
-        }
-    });
-
-    NestView = Backbone.View.extend({
-
+    NestView = Backbone.View.extend(
+    {
         el: $('#widget__nest'),
 
         initialize: function() 

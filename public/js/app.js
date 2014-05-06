@@ -1,5 +1,5 @@
 if(typeof window.console === undefined) {
-    window.console = console = {log: function() {}, warn: function() {}}
+    window.console = console = {log: function() {}, warn: function() {}};
 }
 
 define([
@@ -7,7 +7,8 @@ define([
     'jquery',
     'backbone',
     'views/weather',
-    'views/nest'
+    'views/nest',
+    'views/transit'
 
 ], function(_, $, Backbone, WeatherView, NestView) 
 {
@@ -18,10 +19,11 @@ define([
         {
             new WeatherView();
             new NestView();
+            new TransitView();
         }
 
     });
 
 
-    return App;
-})
+    return App; 
+});

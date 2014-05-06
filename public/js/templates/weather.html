@@ -2,6 +2,9 @@
     <div class="temperature">
         <%= Math.round(weather.get('currently').temperature) %><sup>&deg;</sup>
     </div>
+    <div class="icon">
+        <canvas id="weather-icon" width="100" height="100"></canvas>
+    </div>
     <div class="conditions">
         <%= weather.get('minutely').summary %>
     </div>

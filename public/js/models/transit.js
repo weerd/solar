@@ -4,9 +4,9 @@ define([
     'backbone'
 ], function ($, _, Backbone) 
 {
-    Weather = Backbone.Model.extend(
+    Transit = Backbone.Model.extend(
     {
-        url: '/api/v1/weather',
+        url: '/api/v1/transit',
 
         initialize: function()
         {
@@ -23,9 +23,9 @@ define([
 
         fetchError: function (model, response) 
         {
-            throw new Error("ERROR: Weather information could not be fetched.");
+            throw new Error("ERROR: Transit information could not be fetched.");
         }
     });
 
-    return Weather;
+    return Transit;
 });
