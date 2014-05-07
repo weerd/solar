@@ -17,6 +17,7 @@ class NestController extends BaseController
         else:
 
             $nest = new Nest();
+
             $nestStatus = $nest->getStatus();
 
             $expires = Carbon::now()->addMinutes(2);

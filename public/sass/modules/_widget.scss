@@ -2,7 +2,7 @@
 {
     width: 100%;
     position: relative;
-    overflow: hidden;
+    @include pie-clearfix;
 
     .widget--front,
     .widget--back

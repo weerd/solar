@@ -11,13 +11,15 @@
 </div>
 <div class="widget--back">
     <div class="forecast">
-        <div class="hourly">
-            <h2>Later</h2>
-            <span class="small"><%= weather.get('hourly').summary %></span>
-        </div>
-        <div class="daily">
-            <h2>This Week</h2>
-            <span class="small"><%= weather.get('daily').summary %></span>
-        </div>
+        <% _.each(weather.get('daily').data, function(daily, key) { %>
+            <% var day = moment.unix(daily.time).format("dddd"); %>
+                <% if (key > 0 && key <= 3) { %>
+                    <div class="daily">
+                        <div class="day"><%= day %></div>
+                        <div class="icon"><canvas id="weather-forecast-<%= key %>" width="65" height="65"></canvas></div>
+                        <div class="temperature"><%= Math.round(daily.temperatureMax) %>&deg;</div>
+                    </div>
+                <% } %>
+        <% }); %>
     </div>
 </div>

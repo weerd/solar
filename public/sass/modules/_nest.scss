@@ -1,7 +1,6 @@
 .widget--nest
 {
     width: 100%;
-    min-height: 135px;
     color: $color-font;
     background: $color-grad-two;
 
@@ -25,7 +24,7 @@
 
     .nest--location
     {
-        font-weight: 700;
+        font-weight: 500;
         color: $color-font;
     }
 
@@ -37,6 +36,7 @@
 
     .nest--temp-target
     {
+        font-weight: 500;
         font-size: 24px;
         margin: 10px 0 10px 0;
     }

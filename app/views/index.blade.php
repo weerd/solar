@@ -13,6 +13,7 @@
             <div id="widget__weather" class="widget widget--weather"></div>
             <div id="widget__nest" class="widget widget--nest"></div>
             <div id="widget__transit" class="widget widget--transit"></div>
+            <div id="widget__bikes" class="widget widget--citibike"></div>
         </div>
     </div>
 </body>

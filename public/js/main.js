@@ -3,6 +3,9 @@ require.config({
         'skycons': {
             exports: 'Skycons'
         },
+    },
+    paths: {
+        "moment": "moment",
     }
 });
 

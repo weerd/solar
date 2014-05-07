@@ -1,7 +1,6 @@
 .widget--transit
 {
     background: $color-grad-three;
-    height: 125px;
     color: $color-font;
     padding: $padding-default;
 
@@ -23,7 +22,7 @@
 
         .name
         {
-            font-weight: 100;
+            font-weight: 500;
             font-size: 24px;
             line-height: 41px;
             width: 45px;
@@ -47,8 +46,8 @@
             .status,
             .name
             {
-                color: lighten(green, 10);
-                border-color: lighten(green, 10);
+                color: $color-font;
+                border-color: $color-font;
             }
         }
 
@@ -57,8 +56,8 @@
             .status,
             .name
             {
-                color: lighten(yellow, 15);
-                border-color: lighten(yellow, 15);
+                color: darken(yellow, 10);
+                border-color: darken(yellow, 10);
             }
         }
 

@@ -3,10 +3,11 @@ define([
     'underscore',
     'backbone',
     'skycons',
+    'moment',
     'models/weather',
     'text!templates/weather.html'
 
-], function ($, _, Backbone, Skycons, Weather, weatherTemplate) 
+], function ($, _, Backbone, Skycons, moment, Weather, weatherTemplate) 
 {
     WeatherView = Backbone.View.extend({
 
@@ -23,28 +24,38 @@ define([
 
         render: function()
         {
-            var template = _.template(weatherTemplate, { weather : this.model }),
-                skycon = new Skycons({"color": '#546169' }),
-                icon = this.model.get('currently').icon;
+            renderer = this;
 
-            this.$el.html(template);
-
-            that = this; 
-
-            skycon.set('weather-icon', ''+ icon + '');
-            skycon.play();
-
-            console.log(Skycons);
-
-            var tileSwap = setInterval(function()
+            $.when(this.model.fetch()).done(function()
             {
-                that.$el.find('.widget--front').toggleClass('widget--swap');
-                that.$el.find('.widget--back').toggleClass('widget--swap');
-            }, 10000);
+                var template = _.template(weatherTemplate, { weather : renderer.model }),
+                    skycon = new Skycons({"color": '#546169' }),
+                    icon = renderer.model.get('currently').icon,
+                    iconTwo = renderer.model.get('daily').data[1].icon,
+                    iconThree = renderer.model.get('daily').data[2].icon,
+                    iconFour = renderer.model.get('daily').data[3].icon;
+
+                renderer.$el.html(template);
+
+                skycon.add('weather-icon', ''+ icon +'');
+                skycon.add('weather-forecast-1', ''+ iconTwo +'');
+                skycon.add('weather-forecast-2', ''+ iconThree +'');
+                skycon.add('weather-forecast-3', ''+ iconFour +'');
+
+                skycon.play();
+
+                var tileSwap = setInterval(function()
+                {
+                    renderer.$el.find('.widget--front').toggleClass('widget--swap');
+                    renderer.$el.find('.widget--back').toggleClass('widget--swap');
+                }, 10000);
+
+                console.log(tileSwap);
+            });
+
         }
 
     });
-
-
+    
     return WeatherView;
 });

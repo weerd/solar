@@ -1,9 +1,7 @@
-<div class="widget--front">
-    <% _.each(nest.get('devices'), function(nest) { %>
-        <div class="nest nest--target-<%= nest.temperature_type %>">
-            <div class="nest--location"><%= nest.location %></div>
-            <div class="nest--temp-target"><%= nest.temperature_current %>&deg;</div>
-            <% if (nest.temperature_type == 'cool' || nest.temperature_type == 'heat') { %><div class="nest--temp-type"><%= nest.temperature_type %>ing to <strong><%= nest.temperature_target %>&deg;</strong></div><% } %>
-        </div>
-    <% }); %>
-</div>
+<% _.each(nest.get('devices'), function(nest) { %>
+    <div class="nest nest--target-<%= nest.temperature_type %>">
+        <div class="nest--location"><%= nest.location %></div>
+        <div class="nest--temp-target"><%= nest.temperature_current %>&deg;</div>
+        <% if (nest.temperature_type == 'cool' || nest.temperature_type == 'heat') { %><div class="nest--temp-type"><%= nest.temperature_type %>ing to <strong><%= nest.temperature_target %>&deg;</strong></div><% } %>
+    </div>
+<% }); %>

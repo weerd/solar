@@ -8,9 +8,10 @@ define([
     'backbone',
     'views/weather',
     'views/nest',
-    'views/transit'
+    'views/transit',
+    'views/bikes'
 
-], function(_, $, Backbone, WeatherView, NestView) 
+], function(_, $, Backbone, WeatherView, NestView, TransitView, BikeView) 
 {
 
     var App = Backbone.View.extend({
@@ -20,6 +21,7 @@ define([
             new WeatherView();
             new NestView();
             new TransitView();
+            new BikeView();
         }
 
     });

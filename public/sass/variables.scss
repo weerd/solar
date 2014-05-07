@@ -7,7 +7,7 @@ $screen-sm-width: 480px;
 $screen-md-width: 768px;
 $screen-lg-width: 1100px;
 
-$padding-default: 25px;
+$padding-default: 30px;
 
 
 $color-font: darken(#85949E, 20);
@@ -19,6 +19,7 @@ $color-three: #DDE1EE;
 $color-four: #EEEEFF;
 
 
-$color-grad-one: darken(#C1D1DB, 10);
+$color-grad-one: darken(#C1D1DB, 0);
 $color-grad-two: lighten($color-grad-one, 5);
 $color-grad-three: lighten($color-grad-one, 10);
+$color-grad-four: lighten($color-grad-one, 15);

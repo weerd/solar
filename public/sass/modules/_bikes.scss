@@ -1,0 +1,25 @@
+.widget--citibike
+{
+    background: $color-grad-four;
+    color: $color-font;
+    width: 100%;
+
+    .bikes,
+    .docks
+    {
+        width: 50%;
+        float: left;
+        padding: $padding-default;
+        text-align: center;
+        text-transform: uppercase;
+        font-weight: 100;
+
+        strong
+        {
+            font-weight: 500;   
+            font-size: 24px;
+            padding-bottom: 10px;
+            display: block;
+        }
+    }
+}
