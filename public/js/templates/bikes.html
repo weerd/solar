@@ -1,3 +1,15 @@
+    <div class="chart--line">
+        <% availablePercent = Math.round( (bikes.get('station').bikes / (bikes.get('station').bikes + bikes.get('station').docks) ) * 100) %>
+        <div class="track">
+            <div class="filled" style="width: <%= availablePercent %>%;">
+                <div class="bikes--available">
+                    <span class="icon-Citibike"></span>   
+                </div>
+            </div>
+        </div>
+    </div>
+
+
     <div class="bikes">
         <strong><%= bikes.get('station').bikes %></strong> Bikes
     </div> 

@@ -7,6 +7,7 @@
     .bikes,
     .docks
     {
+        display: none;
         width: 50%;
         float: left;
         padding: $padding-default;
@@ -20,6 +21,41 @@
             font-size: 24px;
             padding-bottom: 10px;
             display: block;
+        }
+    }
+
+    .chart--line
+    {
+        padding: 10px 0 $padding-default 0;
+
+        .track
+        {
+            border-bottom: 3px solid #fff;
+        }
+
+        .filled
+        {
+            font-size: 24px;
+            font-weight: 100;
+            line-height: 32px;
+            position: relative;;
+            bottom: -3px;
+            text-align: right;
+            border-bottom: 3px solid darken($color-grad-one, 5);
+
+            .number
+            {
+                margin-right: 10px;
+                display: inline-block;
+            }
+
+            .icon-Citibike
+            {
+                font-size: 52px;
+                padding: 0 0 0 $padding-default;
+                position: relative;
+                bottom: -6px;
+            }
         }
     }
 }

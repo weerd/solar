@@ -49,8 +49,6 @@ define([
                     renderer.$el.find('.widget--front').toggleClass('widget--swap');
                     renderer.$el.find('.widget--back').toggleClass('widget--swap');
                 }, 10000);
-
-                console.log(tileSwap);
             });
 
         }

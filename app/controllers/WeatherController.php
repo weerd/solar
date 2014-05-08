@@ -25,7 +25,7 @@ class WeatherController extends BaseController
         else:
 
             $forecast = self::connect();
-            $expires = Carbon::now()->addMinutes(10);
+            $expires = Carbon::now()->addMinutes(5);
             $current = $forecast->get('40.692902','-73.954646');
 
             Cache::put('weather__current', $current, $expires);

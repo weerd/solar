@@ -1,8 +1,8 @@
-<div class="transit--summary">
-<% _.each(transit.get('lines'), function(line) { %>
-    <div class="transit--line transit--status-<%= line.status_class %>">
-        <div class="name"><%= line.line %></div>
-        <div class="status"><%= line.status %></div>
+    <div class="transit--summary">
+    <% _.each(transit.get('lines'), function(line) { %>
+        <div class="transit--line transit--status-<%= line.status_class %>">
+            <div class="name"><%= line.line %></div>
+            <div class="status"><%= line.status %></div>
+        </div>
+    <% }); %>
     </div>
-<% }); %>
-</div>

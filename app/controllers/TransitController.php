@@ -17,24 +17,42 @@ class TransitController extends BaseController
         $data = self::connect();
         $subway = array();
 
-        foreach ($data->body->subway->line as $line):
+        foreach ($data->body->subway->line as $key => $line):
 
-            if (in_array($line->name, array('G','L','456')) )
-            {
-                if ($line->name == '456') $lineName = 6;
-                else $lineName = $line->name;
+            if (in_array($line->name, array('G','L','456')) ):
+
+                if ($line->name == '456'):
+
+                    $key = 3;
+                    $lineName = 6;
+
+                elseif ($line->name == 'G'):
+                    
+                    $lineName = $line->name;
+                    $key = 1;
+
+                elseif ($line->name == 'L'):
+
+                    $lineName = $line->name;
+                    $key = 2;
+
+                else:
+
+                    $lineName = $line->name;
+
+                endif;
 
                 if ($line->status == 'GOOD SERVICE') $lineClass = 'green';
                 if ($line->status == 'DELAYS') $lineClass = 'red';
                 if ($line->status == 'PLANNED WORK') $lineClass = 'yellow';
 
-                $subway[] = array(
+                $subway[$key] = array(
                     'line' => (string) $lineName,
                     'status' => (string) $line->status,
                     'status_class' => (string) $lineClass,
                     'updated_at' => (string) $line->time
                 );
-            }
+            endif;
 
         endforeach;
 
