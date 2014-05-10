@@ -38,6 +38,7 @@ class RefreshCommand extends Command {
 	public function fire()
 	{
 
+		BikeController::refreshData();
 		NestController::refreshData();
 		TransitController::refreshData();
 		WeatherController::refreshData();

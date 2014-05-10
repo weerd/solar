@@ -2,10 +2,11 @@ define([
     'jquery',
     'underscore',
     'backbone',
+    'pusher',
     'models/bikes',
     'text!templates/bikes.html'
 
-], function ($, _, Backbone, Bikes, bikeTemplate) 
+], function ($, _, Backbone, Pusher, Bikes, bikeTemplate) 
 {
 
     BikeView = Backbone.View.extend(
@@ -14,24 +15,32 @@ define([
 
         initialize: function() 
         {
-            _.bindAll(this, 'render');
+            // _.bindAll(this, 'render');
 
-            this.model = new Bikes();
+            Bikes.model = new Bikes();
 
-            this.model.bind('change', this.render);
+            Bikes.model.bind("change", this.render);
+
+            BikeView.$pusher = new Pusher('772c12fd3cfe4cfd7ab3');
+            BikeView.$channel = BikeView.$pusher.subscribe('solar');
+            BikeView.$channel.bind('bikes', function(data) 
+            {
+                console.log('PUSHER EVENT: BIKES CHANGE TRIGGERED');
+                Bikes.model.trigger('change');
+            });
         }, 
 
         render: function()
         {
-            var template = _.template(bikeTemplate, { bikes : this.model });
+            $.when(Bikes.model.change).done(function()
+            {
+                var template = _.template(bikeTemplate, { bikesData : Bikes.model });
 
-            this.$el.html(template);
-
-            that = this; 
+                $('#widget__bikes').html(template);
+            });
         }
 
     });
-
 
     return BikeView;
 });

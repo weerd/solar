@@ -4,10 +4,9 @@ define([
     'backbone',
     'models/transit',
     'pusher',
-    'live',
     'text!templates/transit.html'
 
-], function ($, _, Backbone, Transit, Pusher, Backpusher, transitTemplate) 
+], function ($, _, Backbone, Transit, Pusher, transitTemplate) 
 {
     TransitView = Backbone.View.extend({
 
@@ -15,27 +14,28 @@ define([
 
         initialize: function() 
         {
-            _.bindAll(this, 'render');
+            // _.bindAll(this, 'render');
 
-            this.model = new Transit();
+            Transit.model = new Transit();
 
-            this.model.bind('change', this.render);
+            Transit.model.bind('change', this.render);
 
-            var pusher = new Pusher('772c12fd3cfe4cfd7ab3');
-            var channel = pusher.subscribe('solar');
-
-            that = this;
-
-            channel.bind('transit', function(data) {
-                that.model.trigger('change');
+            Transit.$pusher = new Pusher('772c12fd3cfe4cfd7ab3');
+            Transit.$channel = Transit.$pusher.subscribe('solar');
+            Transit.$channel.bind('transit', function() 
+            {
+                Transit.model.trigger('change');
             });
         }, 
 
         render: function()
         {
-            var template = _.template(transitTemplate, { transit : this.model });
+            $.when(Transit.model.change).done(function()
+            {
+                var template = _.template(transitTemplate, { transit : Transit.model });
 
-            this.$el.html(template);
+                $('#widget__transit').html(template);
+            });
         }
 
     });

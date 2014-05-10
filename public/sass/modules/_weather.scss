@@ -3,8 +3,9 @@ $tile-height: 250px;
 .widget--weather
 {
     background: $color-grad-one;
-    min-height: $tile-height;
+    height: $tile-height;
     color: $color-font;
+    overflow: hidden;
 
     .widget--front,
     .widget--back
@@ -95,7 +96,7 @@ $tile-height: 250px;
 
     .widget--weather
     {
-        min-height: $tile-height;
+        height: $tile-height;
 
         .widget--front,
         .widget--back
