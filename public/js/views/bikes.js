@@ -32,7 +32,7 @@ define([
 
         render: function()
         {
-            $.when(Bikes.model.change).done(function()
+            Bikes.model.on('change', function()
             {
                 var template = _.template(bikeTemplate, { bikesData : Bikes.model });
 

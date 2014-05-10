@@ -31,7 +31,7 @@ define([
 
         render: function()
         {
-            $.when(Nest.model.change).done(function()
+            Nest.model.on('change', function()
             {
                 var template = _.template(nestTemplate, { nest : Nest.model });
 

@@ -33,7 +33,7 @@ define([
 
         render: function()
         {
-            $.when(Weather.model.change).done(function()
+            Weather.model.on('change', function()
             {
                 var template = _.template(weatherTemplate, { weather : Weather.model }),
                     skycon = new Skycons({"color": '#546169' }),

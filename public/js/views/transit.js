@@ -30,7 +30,7 @@ define([
 
         render: function()
         {
-            $.when(Transit.model.change).done(function()
+            Transit.model.on('change', function()
             {
                 var template = _.template(transitTemplate, { transit : Transit.model });
 
