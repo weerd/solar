@@ -5,6 +5,13 @@ use Nest\Nest,
 
 class NestController extends BaseController
 {
+    public static function pusher()
+    {
+        $pusher = new Pusher( PUSHER_API_KEY, PUSHER_API_SECRET, PUSHER_API_APP_ID );
+
+        return $pusher;
+    }
+
     public static function connect()
     {
 
@@ -16,17 +23,27 @@ class NestController extends BaseController
 
         else:
 
+            $pusher = self::pusher();
             $nest = new Nest();
 
             $nestStatus = $nest->getStatus();
 
             $expires = Carbon::now()->addMinutes(2);
 
+            $pusher->trigger( 'solar', 'nest', 'refresh' );
+
             Cache::put($cache, $nestStatus, $expires);
 
         endif;
 
         return $nestStatus;
+    }
+
+    public static function refreshData()
+    {
+        $instance = self::connect();
+
+        return 'NEST UPDATE SUCCESS';
     }
 
     /*

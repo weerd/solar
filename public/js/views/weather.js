@@ -2,12 +2,13 @@ define([
     'jquery',
     'underscore',
     'backbone',
+    'pusher',
     'skycons',
     'moment',
     'models/weather',
     'text!templates/weather.html'
 
-], function ($, _, Backbone, Skycons, moment, Weather, weatherTemplate) 
+], function ($, _, Backbone, Pusher, Skycons, moment, Weather, weatherTemplate) 
 {
     WeatherView = Backbone.View.extend({
 
@@ -20,6 +21,17 @@ define([
             this.model = new Weather();
 
             this.model.bind('change', this.render);
+
+            var pusher = new Pusher('772c12fd3cfe4cfd7ab3');
+            var channel = pusher.subscribe('solar');
+
+            that = this;
+
+            channel.bind('weather', function() 
+            {
+                that.model.trigger('change');
+                console.log('weather trigger');
+            });
         }, 
 
         render: function()

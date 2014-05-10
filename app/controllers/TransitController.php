@@ -4,9 +4,19 @@ use Httpful\Httpful;
 
 class TransitController extends BaseController
 {
+    public static function pusher()
+    {
+        $pusher = new Pusher( PUSHER_API_KEY, PUSHER_API_SECRET, PUSHER_API_APP_ID );
+
+        return $pusher;
+    }
+
     public static function connect()
     {
+        $pusher = self::pusher();
         $data = \Httpful\Request::get(MTA_API_ENDPOINT)->expectsXml()->send();
+
+        $pusher->trigger( 'solar', 'transit', 'refresh' );
 
         return $data;
     }

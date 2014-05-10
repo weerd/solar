@@ -5,6 +5,13 @@ use Forecast\Forecast,
 
 class WeatherController extends BaseController
 {
+    public static function pusher()
+    {
+        $pusher = new Pusher( PUSHER_API_KEY, PUSHER_API_SECRET, PUSHER_API_APP_ID );
+
+        return $pusher;
+    }
+
     public static function connect()
     {
         $forecast = new Forecast(FORECAST_IO_API_KEY);
@@ -24,11 +31,15 @@ class WeatherController extends BaseController
 
         else:
 
+
             $forecast = self::connect();
             $expires = Carbon::now()->addMinutes(5);
             $current = $forecast->get('40.692902','-73.954646');
 
             Cache::put('weather__current', $current, $expires);
+
+            $pusher = self::pusher();
+            $pusher->trigger( 'solar', 'weather', 'refresh' );
 
         endif;
 

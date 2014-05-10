@@ -1,8 +1,9 @@
 define([
     'jquery',
     'underscore',
-    'backbone'
-], function ($, _, Backbone) 
+    'backbone',
+    'live'
+], function ($, _, Backbone, Pusher) 
 {
     Transit = Backbone.Model.extend(
     {
