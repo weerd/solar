@@ -20,6 +20,8 @@ define([
 
             Nest.model.bind('change', this.render);
 
+            Nest.model.trigger('change');
+
             Nest.$pusher = new Pusher('772c12fd3cfe4cfd7ab3');
             Nest.$channel = Nest.$pusher.subscribe('solar');
             Nest.$channel.bind('Nest', function() 

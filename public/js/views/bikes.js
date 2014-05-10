@@ -21,6 +21,8 @@ define([
 
             Bikes.model.bind("change", this.render);
 
+            Bikes.model.trigger('change');
+
             BikeView.$pusher = new Pusher('772c12fd3cfe4cfd7ab3');
             BikeView.$channel = BikeView.$pusher.subscribe('solar');
             BikeView.$channel.bind('bikes', function(data) 

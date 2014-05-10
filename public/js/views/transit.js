@@ -20,6 +20,8 @@ define([
 
             Transit.model.bind('change', this.render);
 
+            Transit.model.trigger('change');
+
             Transit.$pusher = new Pusher('772c12fd3cfe4cfd7ab3');
             Transit.$channel = Transit.$pusher.subscribe('solar');
             Transit.$channel.bind('transit', function() 

@@ -22,6 +22,8 @@ define([
 
             Weather.model.bind("change", this.render);
 
+            Weather.model.trigger('change');
+
             Weather.$pusher = new Pusher('772c12fd3cfe4cfd7ab3');
             Weather.$channel = Weather.$pusher.subscribe('solar');
             Weather.$channel.bind('weather', function() 
