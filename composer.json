@@ -7,7 +7,7 @@
 		"laravel/framework": "4.1.*",
 		"guhelski/forecast-php": "dev-master",
 		"pusher/pusher-php-server": "dev-master",
-		"nategood/httpful": "*",
+		"nategood/httpful": "*"
 	},
 	"autoload": {
 		"classmap": [
