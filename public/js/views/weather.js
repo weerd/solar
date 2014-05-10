@@ -52,13 +52,13 @@ define([
 
                 skycon.play();
 
-                clearInterval(tileSwap);
+                // clearInterval(tileSwap);
 
-                var tileSwap = setInterval(function()
-                {
-                    $('#widget__weather').find('.widget--front').toggleClass('widget--swap');
-                    $('#widget__weather').find('.widget--back').toggleClass('widget--swap');
-                }, 10000);
+                // var tileSwap = setInterval(function()
+                // {
+                //     $('#widget__weather').find('.widget--front').toggleClass('widget--swap');
+                //     $('#widget__weather').find('.widget--back').toggleClass('widget--swap');
+                // }, 10000);
             });
 
         }
