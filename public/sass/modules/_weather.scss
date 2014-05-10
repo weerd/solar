@@ -1,4 +1,4 @@
-$tile-height: 220px;
+$tile-height: 250px;
 
 .widget--weather
 {
@@ -21,7 +21,7 @@ $tile-height: 220px;
             top: $padding-default;
             left: $padding-default;
             font-weight: 100;
-            font-size: 72px;
+            font-size: 52px;
             line-height: 52px;
         }
 
@@ -58,15 +58,18 @@ $tile-height: 220px;
 
         .day
         {
-            font-weight: 500;
-            margin-bottom: 20px;
             text-transform: uppercase;
         }     
 
+        .icon
+        {
+            margin: $padding-default 0 $padding-default 0;
+        }
+
         .temperature
         {
+            font-weight: 100;
             font-size: 24px;
-            margin-top: 10px;
         }
     }
 
@@ -86,7 +89,44 @@ $tile-height: 220px;
     }
 }
 
-@media (min-width: $screen-sm-width)
+@media (min-width: $screen-lg-width)
 {
+    $tile-height: 260px;
 
+    .widget--weather
+    {
+        min-height: $tile-height;
+
+        .widget--front,
+        .widget--back
+        {
+            height: $tile-height;
+        }
+
+        .widget--front
+        {
+            .temperature
+            {
+                font-size: 82px;
+                letter-spacing: -2px;
+            }
+        }
+
+        .widget--back
+        {
+            font-size: 16px;
+            top: $tile-height;
+
+            .temperature
+            {
+                font-size: 36px;
+                letter-spacing: -2px;
+            }
+        }
+
+        .widget--swap
+        {
+            -webkit-transform: translate(0, -$tile-height);
+        }
+    }
 }

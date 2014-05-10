@@ -52,9 +52,37 @@
             .icon-Citibike
             {
                 font-size: 52px;
-                padding: 0 0 0 $padding-default;
+                padding-left: $padding-default;
                 position: relative;
                 bottom: -6px;
+            }
+        }
+    }
+}
+
+
+@media (min-width: $screen-lg-width)
+{
+    .widget--citibike
+    {
+        .chart--line
+        {
+            .track
+            {
+                border-bottom: 5px solid #fff;
+            }
+            .filled
+            {
+                border-bottom: 5px solid darken($color-grad-one, 5);
+                bottom: -5px;
+
+                .icon-Citibike
+                {
+                    font-size: 72px;
+                    padding-left: $padding-default;
+                    position: relative;
+                    bottom: -6px;
+                }
             }
         }
     }

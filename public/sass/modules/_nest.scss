@@ -24,8 +24,10 @@
 
     .nest--location
     {
-        font-weight: 500;
+        font-size: 14px;
+        font-weight: 100;
         color: $color-font;
+        text-transform: uppercase;
     }
 
     .nest--temp-type
@@ -36,9 +38,25 @@
 
     .nest--temp-target
     {
-        font-weight: 500;
+        font-weight: 100;
         font-size: 24px;
-        margin: 10px 0 10px 0;
+        margin: 20px 0 20px 0;
     }
 }
 
+
+@media (min-width: $screen-lg-width)
+{
+    .widget--nest .nest
+    {
+        .nest--location
+        {
+            font-size: 16px;
+        }
+
+        .nest--temp-target
+        {
+            font-size: 36px;
+        }
+    }
+}
