@@ -19,6 +19,13 @@ class WeatherController extends BaseController
         return $forecast; 
     }
 
+    public static function refreshData()
+    {
+        $instance = self::connect();
+
+        return 'WEATHER UPDATE SUCCESS';
+    }
+
     /*
         Returns a JSON object containing current weather conditions from Forecast.io
         Forecast is cached for 10 minutes

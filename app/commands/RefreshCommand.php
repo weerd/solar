@@ -39,6 +39,8 @@ class RefreshCommand extends Command {
 	{
 
 		NestController::refreshData();
+		TransitController::refreshData();
+		WeatherController::refreshData();
 
 	}
 

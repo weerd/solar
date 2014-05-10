@@ -21,6 +21,13 @@ class TransitController extends BaseController
         return $data;
     }
 
+    public static function refreshData()
+    {
+        $instance = self::connect();
+
+        return 'TRANSIT UPDATE SUCCESS';
+    }
+
     public function get()
     {
         // MTA returns terribly mal-formed XML response... have to do lots of parsing to convert it to pretty JSON
