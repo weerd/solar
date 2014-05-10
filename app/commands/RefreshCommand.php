@@ -38,11 +38,21 @@ class RefreshCommand extends Command {
 	public function fire()
 	{
 
-		BikeController::refreshData();
-		NestController::refreshData();
-		TransitController::refreshData();
 		WeatherController::refreshData();
 
+		sleep(1)
+
+		BikeController::refreshData();
+
+		sleep(1);
+
+		NestController::refreshData();
+
+		sleep(1);
+
+		TransitController::refreshData();
+
+		$this->info('Data fetched successfully.');
 	}
 
 }

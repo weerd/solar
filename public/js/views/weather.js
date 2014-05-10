@@ -52,7 +52,7 @@ define([
 
                 skycon.play();
 
-                if (tileSwap) clearInterval(tileSwap);
+                clearInterval(tileSwap);
 
                 var tileSwap = setInterval(function()
                 {
