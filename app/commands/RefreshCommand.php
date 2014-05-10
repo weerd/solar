@@ -40,7 +40,7 @@ class RefreshCommand extends Command {
 
 		WeatherController::refreshData();
 
-		sleep(1)
+		sleep(1);
 
 		BikeController::refreshData();
 
